@@ -4,8 +4,8 @@ import string
 
 import requests
 from django.contrib.auth.models import User
-from django.core.management.base import BaseCommand, CommandError
-from groups.models import Group, GroupMember
+from django.core.management.base import BaseCommand
+from apps.groups.models import Group, GroupMember
 
 
 class Command(BaseCommand):

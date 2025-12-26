@@ -1,8 +1,8 @@
 from core.services import mail
 from django.conf import settings
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
-from reports.models import PostReport, UserProfileReport
+from apps.reports.models import PostReport, UserProfileReport
 
 
 @receiver(post_save, sender=PostReport)
@@ -23,7 +23,7 @@ def post_reported_mail_hook(sender, instance, created, **kwargs):
                 "url": instance.url,
             }
             mail(subject, template_name, recipient, context)
-        except:
+        except Exception:
             pass
         else:
             pass
@@ -31,7 +31,7 @@ def post_reported_mail_hook(sender, instance, created, **kwargs):
         try:
             recipient = instance.reporter.email
             subject = "Report Progress"
-        except:
+        except Exception:
             pass
         else:
             pass
@@ -55,7 +55,7 @@ def user_profile_reported_mail_hook(sender, instance, created, **kwargs):
                 "url": instance.url,
             }
             mail(subject, template_name, recipient, context)
-        except:
+        except Exception:
             pass
         else:
             pass
@@ -63,7 +63,7 @@ def user_profile_reported_mail_hook(sender, instance, created, **kwargs):
         try:
             recipient = instance.reporter.email
             subject = "Report Progress"
-        except:
+        except Exception:
             pass
         else:
             pass

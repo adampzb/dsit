@@ -1,10 +1,9 @@
-from comments.serializers import PostCommentCreateSerializer, PostCommentSerializer
 from core.views import BaseReadOnlyViewSet, BaseViewSet
-from django.contrib.auth.models import User
 from posts.filters import PostFilterSet
 from posts.models import Post, PostVote
 from posts.serializers import PostEditSerializer, PostSerializer
-from rest_framework import filters, generics, status, viewsets
+from tags.models import Tag
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
@@ -158,6 +157,7 @@ class PostSelfViewSet(BaseViewSet):
                 {"error": "Spoofing detected"}, status=status.HTTP_403_FORBIDDEN
             )
         try:
+            data = request.data
             tag = data.pop("tag", None)
             tag_obj = None
             if "id" in tag.keys():
@@ -188,6 +188,7 @@ class PostSelfViewSet(BaseViewSet):
                 {"error": "Spoofing detected"}, status=status.HTTP_403_FORBIDDEN
             )
         try:
+            data = request.data
             tag = data.pop("tag", None)
             tag_obj = None
             if "id" in tag.keys():

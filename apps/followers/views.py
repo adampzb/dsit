@@ -1,10 +1,9 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
+from core.views import BaseViewSet
 from django.contrib.auth.models import User
 from followers.models import PostFollower, UserFollower
 from followers.serializers import PostFollowerSerializer, UserFollowerSerializer
 from posts.models import Post
 from rest_framework import status
-from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
@@ -93,9 +92,7 @@ class UserFollowerViewSet(BaseViewSet):
         queryset = self.queryset
         if self.kwargs != {}:
             if "user_pk" in self.kwargs:
-                return self.queryset.filter(
-                    followed_user__pk=self.kwargs["user_pk"]
-                )
+                return self.queryset.filter(followed_user__pk=self.kwargs["user_pk"])
         return queryset
 
     def list(self, request, user_pk=None):

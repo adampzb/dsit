@@ -1,7 +1,7 @@
 from core.models import TimeStampedModel
 from django.contrib.auth.models import User
 from django.db import models
-from groups.models import Group
+from apps.groups.models import Group
 
 
 class MemberRequest(TimeStampedModel):
@@ -14,6 +14,7 @@ class MemberRequest(TimeStampedModel):
     is_approved = models.BooleanField(default=False)
 
     class Meta:
+        app_label = "groups"
         ordering = ["-created_at"]
         verbose_name = "Member Request"
         verbose_name_plural = "Member Requests"

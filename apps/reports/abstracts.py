@@ -1,7 +1,7 @@
 from core.models import TimeStampedModel
 from django.contrib.auth.models import User
 from django.db import models
-from reports.models.types import ReportType
+from apps.reports.models.types import ReportType
 
 
 class AbstractReport(TimeStampedModel):

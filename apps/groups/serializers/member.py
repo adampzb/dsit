@@ -1,5 +1,5 @@
 from core.serializers import ModelReadOnlySerializer
-from groups.models import GroupMember
+from apps.groups.models import GroupMember
 from groups.serializers import GroupReadOnlyLightSerializer
 from profiles.serializers import UserReadOnlySerializer
 from rest_framework import serializers

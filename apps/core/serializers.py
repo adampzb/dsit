@@ -1,7 +1,3 @@
-import re
-
-from django.apps import apps
-from django.db.models.query import QuerySet
 from rest_framework import serializers
 
 

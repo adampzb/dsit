@@ -1,7 +1,7 @@
 from core.models import TimeStampedModel
 from django.contrib.auth.models import User
 from django.db import models
-from groups.models import Group
+from apps.groups.models import Group
 
 
 class GroupInvite(TimeStampedModel):
@@ -18,7 +18,10 @@ class GroupInvite(TimeStampedModel):
         choices=InviteAs.choices, default=InviteAs.MEMBER, max_length=10
     )
 
-    class Meta:
+    class Meta:  # noqa: F811
+        app_label = "groups"
+
+    class Meta:  # noqa: F811
         ordering = ["-created_at"]
         verbose_name = "Group Invite"
         verbose_name_plural = "Group Invites"

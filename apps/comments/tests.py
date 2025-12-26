@@ -6,7 +6,7 @@ from rest_framework.test import APIClient
 from django.contrib.auth.models import User
 from posts.models import Post
 from comments.models import PostComment, PostCommentVote
-from comments.serializers import PostCommentCreateSerializer, PostCommentSerializer
+from comments.serializers import PostCommentCreateSerializer
 from comments.services import add_mentioned_users, remove_users
 
 
@@ -138,7 +138,8 @@ class TestPostCommentViewSet:
     @patch("comments.views.add_mentioned_users")
     def test_create_comment_with_mentions(self, mock_add_mentioned_users):
         """
-        Test that the add_mentioned_users service is called when creating a comment with mentions.
+        Test that the add_mentioned_users service is called when creating a comment
+        with mentions.
         """
         self.client.force_authenticate(user=self.user)
         mentioned_user = baker.make(User)

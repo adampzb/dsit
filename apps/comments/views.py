@@ -1,12 +1,7 @@
 from comments.models import PostComment, PostCommentVote
 from comments.serializers import PostCommentCreateSerializer, PostCommentSerializer
 from comments.services import add_mentioned_users
-from core.views import BaseReadOnlyViewSet, BaseViewSet
-from django.core.exceptions import ValidationError
-from django.db import models
-from django.db.models import F, Q
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
+from core.views import BaseViewSet
 from posts.models import Post
 from rest_framework import status
 from rest_framework.decorators import action
@@ -17,9 +12,6 @@ from rest_framework.response import Response
 
 class PostCommentPagination(PageNumberPagination):
     page_size = 24
-
-
-from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 class PostCommentViewSet(BaseViewSet):

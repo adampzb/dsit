@@ -1,9 +1,7 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
-from django.contrib.auth.models import User
-from groups.models import GroupRule
+from core.views import BaseViewSet
+from apps.groups.models import Group, GroupRule
 from groups.serializers import GroupRuleSerializer
-from rest_framework import filters, generics, status, viewsets
-from rest_framework.decorators import action
+from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response

@@ -3,15 +3,14 @@ from bookmarks.serializers import PostBookmarkReadOnlySerializer
 from comments.serializers import PostCommentLightSerializer, PostCommentVoteSerializer
 from core.views import BaseViewSet
 from django.contrib.auth.models import User
-from django.shortcuts import render
 from groups.serializers import (
     GroupInviteReadOnlySerializer,
-    GroupSerializer,
     MemberRequestSerializer,
 )
 from posts.serializers import PostVoteHeavySerializer
+from profiles.models import UserMetaInfo
 from profiles.serializers import UserSerializer
-from rest_framework import filters, status
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -71,15 +70,13 @@ class ProfileViewSet(BaseViewSet):
                 )
 
             try:
-                another_user = User.objects.get(username=new_username)
+                User.objects.get(username=new_username)
                 return Response(
                     {"error": "This username is taken. Try another"},
                     status=status.HTTP_409_CONFLICT,
                 )
             except User.DoesNotExist:
                 if meta_info is not None:
-                    today = datetime.date.today()
-                    threshold = today - datetime.timedelta(days=90)
                     if meta_info.username_changed:
                         return Response(
                             {"error": "You can change your username only once."},
@@ -133,7 +130,10 @@ class ProfileViewSet(BaseViewSet):
             return Response(
                 {
                     "success": True,
-                    "message": "You request for account deletion has been sent. Your account will be deleted in 15 days",
+                    "message": (
+                        "You request for account deletion has been sent. "
+                        "Your account will be deleted in 15 days"
+                    ),
                 },
                 status=status.HTTP_200_OK,
             )
