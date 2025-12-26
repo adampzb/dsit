@@ -1,7 +1,7 @@
 from ckeditor.widgets import CKEditorWidget
 from django import forms
 from django.contrib import admin
-from groups.models import Group, GroupInvite, GroupMember, GroupRule, MemberRequest
+from apps.groups.models import Group, GroupInvite, GroupMember, GroupRule, MemberRequest
 
 
 class GroupForm(forms.ModelForm):

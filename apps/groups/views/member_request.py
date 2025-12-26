@@ -1,6 +1,6 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from django.contrib.auth.models import User
-from groups.models import Group, MemberRequest
+from apps.groups.models import Group, MemberRequest
 from groups.serializers import MemberRequestSerializer
 from rest_framework import filters, generics, status, viewsets
 from rest_framework.decorators import action

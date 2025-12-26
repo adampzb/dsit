@@ -1,5 +1,5 @@
 from django.contrib import admin
-from reports.models import PostReport, ReportType, UserProfileReport
+from apps.reports.models import PostReport, ReportType, UserProfileReport
 
 
 @admin.register(ReportType)

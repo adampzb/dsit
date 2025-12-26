@@ -1,4 +1,4 @@
-from groups.models import Group
+from apps.groups.models import Group
 from rest_framework import permissions
 
 

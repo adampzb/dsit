@@ -1,7 +1,7 @@
 from core.models import TimeStampedModel
 from django.contrib.auth.models import User
 from django.db import models
-from groups.models import Group
+from apps.groups.models import Group
 
 
 class GroupMember(TimeStampedModel):
@@ -18,6 +18,9 @@ class GroupMember(TimeStampedModel):
 
     group = models.ForeignKey(Group, related_name="members", on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
+
+    class Meta:
+        app_label = 'groups'
     member_type = models.CharField(
         choices=MemberTypes.choices,
         max_length=10,

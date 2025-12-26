@@ -1,5 +1,5 @@
 from core.serializers import ModelReadOnlySerializer
-from groups.models import GroupRule
+from apps.groups.models import GroupRule
 from rest_framework import serializers
 
 

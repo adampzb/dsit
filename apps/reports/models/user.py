@@ -9,6 +9,7 @@ class UserProfileReport(AbstractReport):
     )
 
     class Meta:
+        app_label = 'reports'
         ordering = [
             "-created_at",
         ]

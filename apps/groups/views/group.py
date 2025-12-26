@@ -1,7 +1,7 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from django.contrib.auth.models import User
 from groups.filters import GroupFilterSet
-from groups.models import Group, GroupMember, MemberRequest
+from apps.groups.models import Group, GroupMember, MemberRequest
 from groups.permissions import HasGroupDeletePermissions, HasGroupEditPermissions
 from groups.serializers import (
     GroupCreateSerializer,

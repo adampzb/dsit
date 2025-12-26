@@ -1,4 +1,4 @@
-from reports.models import UserProfileReport
+from apps.reports.models import UserProfileReport
 from rest_framework import serializers
 
 

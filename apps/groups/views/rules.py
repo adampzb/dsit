@@ -1,6 +1,6 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from django.contrib.auth.models import User
-from groups.models import GroupRule
+from apps.groups.models import GroupRule
 from groups.serializers import GroupRuleSerializer
 from rest_framework import filters, generics, status, viewsets
 from rest_framework.decorators import action

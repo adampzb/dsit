@@ -1,6 +1,6 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from django.contrib.auth.models import User
-from reports.models import UserProfileReport
+from apps.reports.models import UserProfileReport
 from reports.serializers import (
     UserProfileReportLightSerializer,
     UserProfileReportSerializer,

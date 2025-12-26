@@ -1,7 +1,7 @@
 from core.models import TimeStampedModel
 from django.contrib.auth.models import User
 from django.db import models
-from groups.models import Group
+from apps.groups.models import Group
 
 
 class GroupRule(TimeStampedModel):
@@ -18,6 +18,7 @@ class GroupRule(TimeStampedModel):
     )
 
     class Meta:
+        app_label = 'groups'
         ordering = ["-created_at"]
         verbose_name = "Group Rule"
         verbose_name_plural = "Group Rules"

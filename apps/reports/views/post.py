@@ -1,6 +1,6 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from posts.models import Post
-from reports.models import PostReport
+from apps.reports.models import PostReport
 from reports.serializers import PostReportLightSerializer, PostReportSerializer
 from rest_framework import status
 from rest_framework.decorators import action

@@ -1,4 +1,4 @@
-from reports.models import PostReport
+from apps.reports.models import PostReport
 from rest_framework import serializers
 
 

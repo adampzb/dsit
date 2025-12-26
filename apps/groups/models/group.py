@@ -13,6 +13,9 @@ class Group(TimeStampedModel):
         PRIVATE = "PRIVATE"
 
     name = models.CharField(max_length=25)
+
+    class Meta:
+        app_label = 'groups'
     description = models.TextField(blank=True)
     group_type = models.CharField(
         choices=Type.choices,

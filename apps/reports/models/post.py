@@ -7,6 +7,7 @@ class PostReport(AbstractReport):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="reports")
 
     class Meta:
+        app_label = 'reports'
         ordering = [
             "-created_at",
         ]

@@ -1,5 +1,5 @@
 from core.serializers import ModelReadOnlySerializer
-from groups.models import Group, GroupMember, MemberRequest
+from apps.groups.models import Group, GroupMember, MemberRequest
 from rest_framework import serializers
 from tags.serializers import TagReadOnlySerializer, TagSerializer
 

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models import Sum
-from groups.models import Group
+from apps.groups.models import Group
 from tags.models import Tag
 
 

@@ -1,7 +1,7 @@
 from core.views import BaseReadOnlyViewSet, BaseViewSet
 from django.contrib.auth.models import User
 from groups.filters import GroupMemberFilterSet
-from groups.models import GroupMember
+from apps.groups.models import GroupMember
 from groups.serializers import GroupMemberSerializer
 from rest_framework import filters, generics, status, viewsets
 from rest_framework.decorators import action
