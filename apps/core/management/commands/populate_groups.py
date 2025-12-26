@@ -1,9 +1,8 @@
 import csv
-import random
 from pathlib import Path
 
 from django.contrib.auth.models import User
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from apps.groups.models import Group, GroupMember
 from tags.models import Tag, TagType
 

@@ -1,7 +1,7 @@
 from core.serializers import ModelReadOnlySerializer
 from apps.groups.models import Group, GroupMember, MemberRequest
 from rest_framework import serializers
-from tags.serializers import TagReadOnlySerializer, TagSerializer
+from tags.serializers import TagSerializer
 
 
 class GroupReadOnlySerializer(ModelReadOnlySerializer):
@@ -95,7 +95,7 @@ class GroupCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = self.context["user"]
         group = Group.objects.create(**validated_data)
-        member = GroupMember.objects.create(group=group, user=user, member_type="ADMIN")
+        GroupMember.objects.create(group=group, user=user, member_type="ADMIN")
         return group
 
     def update(self, instance, validated_data):

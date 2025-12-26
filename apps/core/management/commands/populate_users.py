@@ -1,10 +1,9 @@
-import csv
 import random
 import secrets
 import string
 
 from django.contrib.auth.models import User
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):

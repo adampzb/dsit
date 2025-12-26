@@ -145,7 +145,9 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -154,7 +156,9 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation.NumericPasswordValidator"
+        ),
     },
 ]
 
@@ -166,11 +170,8 @@ LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "GMT"
 
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+# USE_I18N, USE_L10N, and USE_TZ are deprecated in Django 5.0+ and default to True
+# They can be removed as they are no longer needed
 
 SITE_ID = 1
 
@@ -199,7 +200,7 @@ CORS_ALLOWED_ORIGINS = []
 
 
 ####################################
-##  CKEDITOR CONFIGURATION ##
+#  CKEDITOR CONFIGURATION #
 ####################################
 
 CKEDITOR_JQUERY_URL = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"

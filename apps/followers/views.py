@@ -1,10 +1,9 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
+from core.views import BaseViewSet
 from django.contrib.auth.models import User
 from followers.models import PostFollower, UserFollower
 from followers.serializers import PostFollowerSerializer, UserFollowerSerializer
 from posts.models import Post
 from rest_framework import status
-from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 

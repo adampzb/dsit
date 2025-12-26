@@ -1,5 +1,5 @@
-from apps.groups.models import Group, GroupMember
-from guardian.shortcuts import assign_perm, remove_perm
+from apps.groups.models import GroupMember
+from guardian.shortcuts import assign_perm
 
 
 def assign_permissions(member_type, user, group):

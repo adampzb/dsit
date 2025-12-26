@@ -1,4 +1,3 @@
-from comments.models import PostComment
 from django.contrib.auth.models import User
 from django.db import models
 from followers.abstracts import AbstractFollower

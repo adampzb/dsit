@@ -18,10 +18,10 @@ class GroupInvite(TimeStampedModel):
         choices=InviteAs.choices, default=InviteAs.MEMBER, max_length=10
     )
 
-    class Meta:
+    class Meta:  # noqa: F811
         app_label = 'groups'
 
-    class Meta:
+    class Meta:  # noqa: F811
         ordering = ["-created_at"]
         verbose_name = "Group Invite"
         verbose_name_plural = "Group Invites"

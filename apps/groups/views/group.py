@@ -1,20 +1,17 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
-from django.contrib.auth.models import User
+from core.views import BaseViewSet
 from groups.filters import GroupFilterSet
 from apps.groups.models import Group, GroupMember, MemberRequest
 from groups.permissions import HasGroupDeletePermissions, HasGroupEditPermissions
 from groups.serializers import (
     GroupCreateSerializer,
     GroupHeavySerializer,
-    GroupReadOnlySerializer,
     GroupSerializer,
 )
 from posts.models import Post
 from posts.serializers import PostReadOnlySerializer
-from rest_framework import filters, generics, status, viewsets
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 

@@ -6,4 +6,4 @@ class GroupsConfig(AppConfig):
     name = "apps.groups"
 
     def ready(self):
-        import apps.groups.signals
+        import apps.groups.signals  # noqa: F401

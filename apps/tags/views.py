@@ -1,5 +1,5 @@
 from core.views import BaseViewSet
-from django.shortcuts import render
+from django.shortcuts import render  # noqa: F401
 
 from .filters import TagFilterSet
 from .models import Tag

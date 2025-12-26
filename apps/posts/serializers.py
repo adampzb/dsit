@@ -2,8 +2,7 @@ from bookmarks.models import PostBookmark
 from bookmarks.serializers import PostBookmarkLightSerializer
 from comments.models import PostComment
 from core.serializers import ModelReadOnlySerializer
-from django.db.models import Sum
-from groups.serializers import GroupReadOnlyLightSerializer, GroupSerializer
+from groups.serializers import GroupReadOnlyLightSerializer
 from posts.models import Post, PostVote
 from profiles.serializers import UserSerializer
 from rest_framework import serializers

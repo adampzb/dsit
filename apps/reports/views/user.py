@@ -1,4 +1,4 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
+from core.views import BaseViewSet
 from django.contrib.auth.models import User
 from apps.reports.models import UserProfileReport
 from reports.serializers import (
@@ -8,7 +8,6 @@ from reports.serializers import (
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 
@@ -47,7 +46,7 @@ class UserProfileReportViewSet(BaseViewSet):
         if user_username is not None:
             try:
                 data["reported_user"] = User.objects.get(username=user_username).pk
-            except UserProfile.DoesNotExist:
+            except User.DoesNotExist:
                 return Response(
                     {"error": "Wrong Username"}, status=status.HTTP_404_NOT_FOUND
                 )

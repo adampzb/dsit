@@ -8,7 +8,7 @@ class HasGroupEditPermissions(permissions.BasePermission):
         try:
             group_id = request.parser_context["kwargs"]["pk"]
             group = Group.objects.filter(id=group_id)
-        except Exception as e:
+        except Exception:
             return False
         return user.has_perm("edit_groups", group)
 
@@ -19,7 +19,7 @@ class HasGroupDeletePermissions(permissions.BasePermission):
         try:
             group_id = request.parser_context["kwargs"]["pk"]
             group = Group.objects.filter(id=group_id)
-        except Exception as e:
+        except Exception:
             return False
         return user.has_perm("delete_groups", group)
 
@@ -30,6 +30,6 @@ class HasAddMembersPermissions(permissions.BasePermission):
         try:
             member_id = request.parser_context["kwargs"]["pk"]
             member = Group.objects.filter(id=member_id)
-        except Exception as e:
+        except Exception:
             return False
         return user.has_perm("add_members", member)

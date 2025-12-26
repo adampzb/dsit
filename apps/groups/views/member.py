@@ -1,13 +1,9 @@
-from core.views import BaseReadOnlyViewSet, BaseViewSet
-from django.contrib.auth.models import User
+from core.views import BaseReadOnlyViewSet
 from groups.filters import GroupMemberFilterSet
 from apps.groups.models import GroupMember
 from groups.serializers import GroupMemberSerializer
-from rest_framework import filters, generics, status, viewsets
-from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 
 
 class GroupMemberPagination(PageNumberPagination):
