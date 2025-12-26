@@ -49,7 +49,11 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
     - name: Run Black Check
       run: |
-        black --check . --line-length=88 --exclude='\(migrations\|__pycache__\|venv\|env\|.venv\)'
+        # Run Black on specific directories, excluding migrations
+        black --check apps/ --line-length=88 --exclude='/(migrations|__pycache__)/' || exit 1
+        black --check reddit_clone/ --line-length=88 --exclude='/(__pycache__)/' || exit 1
+        black --check manage.py --line-length=88 || exit 1
+        echo "Black formatting check passed!"
     - name: Run Django Tests
       run: |
         python manage.py test --noinput
