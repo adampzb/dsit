@@ -45,3 +45,8 @@ typing_extensions>=4.15.0
 uritemplate>=4.1.1
 urllib3>=2.2.1
 whitenoise>=6.11.0
+
+# Test dependencies
+pytest>=7.0.0
+pytest-django>=4.0.0
+model-bakery>=1.0.0
