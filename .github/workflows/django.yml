@@ -56,6 +56,6 @@ jobs:
         echo "Black formatting check passed!"
     - name: Run Django Tests
       run: |
-        python -m pytest --noinput
+        python -m pytest
     - name: Save Setup-Python Name
       run: echo "SETUP_PYTHON_${{ matrix.python-version }}_NAME=${{ steps.setup-python.outputs.python-version }}" >> $GITHUB_STATE
