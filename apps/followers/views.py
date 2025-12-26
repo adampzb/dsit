@@ -92,9 +92,7 @@ class UserFollowerViewSet(BaseViewSet):
         queryset = self.queryset
         if self.kwargs != {}:
             if "user_pk" in self.kwargs:
-                return self.queryset.filter(
-                    followed_user__pk=self.kwargs["user_pk"]
-                )
+                return self.queryset.filter(followed_user__pk=self.kwargs["user_pk"])
         return queryset
 
     def list(self, request, user_pk=None):

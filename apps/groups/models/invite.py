@@ -19,7 +19,7 @@ class GroupInvite(TimeStampedModel):
     )
 
     class Meta:  # noqa: F811
-        app_label = 'groups'
+        app_label = "groups"
 
     class Meta:  # noqa: F811
         ordering = ["-created_at"]

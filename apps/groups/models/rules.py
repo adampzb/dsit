@@ -17,7 +17,7 @@ class GroupRule(TimeStampedModel):
     )
 
     class Meta:
-        app_label = 'groups'
+        app_label = "groups"
         ordering = ["-created_at"]
         verbose_name = "Group Rule"
         verbose_name_plural = "Group Rules"

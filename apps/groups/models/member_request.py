@@ -14,7 +14,7 @@ class MemberRequest(TimeStampedModel):
     is_approved = models.BooleanField(default=False)
 
     class Meta:
-        app_label = 'groups'
+        app_label = "groups"
         ordering = ["-created_at"]
         verbose_name = "Member Request"
         verbose_name_plural = "Member Requests"

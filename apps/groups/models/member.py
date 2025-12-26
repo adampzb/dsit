@@ -20,7 +20,8 @@ class GroupMember(TimeStampedModel):
     user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
 
     class Meta:  # noqa: F811
-        app_label = 'groups'
+        app_label = "groups"
+
     member_type = models.CharField(
         choices=MemberTypes.choices,
         max_length=10,
