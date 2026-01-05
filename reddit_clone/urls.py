@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+import os
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
+from django.views.static import serve
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
@@ -34,9 +37,15 @@ schema_view = get_schema_view(
 )
 
 
+# Serve Angular app from dist directory
+angular_index = TemplateView.as_view(template_name="angular/index.html")
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", TemplateView.as_view(template_name="home.html"), name="home"),
+    # Serve Angular app for all non-API, non-admin routes
+    path("", angular_index, name="angular_home"),
+    path("django_reddit/", angular_index, name="angular_app"),
+    path("django_reddit/<path:path>", angular_index, name="angular_routes"),
     # path('accounts/', include('allauth.urls')),
     re_path(r"^dj-rest-auth/", include("dj_rest_auth.urls")),
     re_path(r"^dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
@@ -56,3 +65,11 @@ urlpatterns = [
         name="redoc-docs",
     ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Serve Angular static files from django_reddit path
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(r"^django_reddit/(?P<path>.*)$", serve, {
+            "document_root": os.path.join(settings.BASE_DIR, "static", "frontend", "reddit-app", "angular", "dist"),
+        }),
+    ]

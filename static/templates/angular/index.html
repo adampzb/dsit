@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/django_reddit/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Django Reddit</title>
+  {% comment %} Angular will inject its own styles and scripts {% endcomment %}
+</head>
+<body>
+  <app-root></app-root>
+  {% comment %} Angular scripts will be loaded here {% endcomment %}
+  <script src="/django_reddit/runtime.js" defer></script>
+  <script src="/django_reddit/polyfills.js" defer></script>
+  <script src="/django_reddit/styles.js" defer></script>
+  <script src="/django_reddit/vendor.js" defer></script>
+  <script src="/django_reddit/main.js" defer></script>
+</body>
+</html>
