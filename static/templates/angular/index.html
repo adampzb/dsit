@@ -5,15 +5,24 @@
   <base href="/django_reddit/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Django Reddit</title>
-  {% comment %} Angular will inject its own styles and scripts {% endcomment %}
+  <script>
+    // Dynamic script loading to handle hashed filenames
+    function loadAngularScript(filename) {
+      var script = document.createElement('script');
+      script.src = '/django_reddit/' + filename;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+    
+    // Load scripts in order
+    loadAngularScript('runtime.js');
+    loadAngularScript('polyfills.js');
+    loadAngularScript('styles.js');
+    loadAngularScript('vendor.js');
+    loadAngularScript('main.js');
+  </script>
 </head>
 <body>
   <app-root></app-root>
-  {% comment %} Angular scripts will be loaded here {% endcomment %}
-  <script src="/django_reddit/runtime.js" defer></script>
-  <script src="/django_reddit/polyfills.js" defer></script>
-  <script src="/django_reddit/styles.js" defer></script>
-  <script src="/django_reddit/vendor.js" defer></script>
-  <script src="/django_reddit/main.js" defer></script>
 </body>
 </html>

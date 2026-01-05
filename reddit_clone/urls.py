@@ -68,8 +68,13 @@ urlpatterns = [
 
 # Serve Angular static files from django_reddit path
 if settings.DEBUG:
+    # First try to serve actual files
     urlpatterns += [
-        re_path(r"^django_reddit/(?P<path>.*)$", serve, {
+        re_path(r"^django_reddit/(?P<path>.+\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))$", serve, {
             "document_root": os.path.join(settings.BASE_DIR, "static", "frontend", "reddit-app", "angular", "dist"),
         }),
+    ]
+    # Then serve index.html for all other routes (Angular routing)
+    urlpatterns += [
+        re_path(r"^django_reddit/(?:.*)?$", angular_index),
     ]
